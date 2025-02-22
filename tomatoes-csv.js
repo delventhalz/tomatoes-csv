@@ -80,6 +80,7 @@ const toMatchString = (str) => {
   return String(str)
     .toLowerCase()
     .trim()
+    .replace(/\d+(?:st|nd|rd|th)/g, number2Words.toWordsOrdinal)
     .replace(/\d+/g, number2Words.toWords)
     .replace(/[^a-z ]/g, '')
     .replace(/\s+/g, ' ');
@@ -111,9 +112,10 @@ const fetchRottenTomatoesScores = async (title, year) => {
   const parsed = await response.json();
   const { hits } = parsed.results[0];
 
-  const match = hits.find((hit) => {
+  const match = strictMatch ?? hits.find((hit) => {
+    const hitTitles = [hit.title, ...hit.titles, ...hit.aka];
     return Number(year) === Number(hit.releaseYear)
-      && toMatchString(hit.title) === toMatchString(title);
+      && hitTitles.some(t => toMatchString(t) === toMatchString(title));
   });
 
   return {
