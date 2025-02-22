@@ -2,7 +2,8 @@
   "name": "tomatoes-csv",
   "version": "0.0.1",
   "description": "Add Rotten Tomatoes scores to a CSV of movies, such as those exported by Letterboxd",
-  "main": "index.js",
+  "main": "tomatoes-csv.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
