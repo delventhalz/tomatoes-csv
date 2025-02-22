@@ -20,6 +20,7 @@
  *        - RT_QUERY_AGENT:  Found in request headers as "user-agent"
  *        - RT_QUERY_PARAMS: Found in the request body/payload as the "params"
  *                           on the requests object named "content_rt"
+ *                           (the "hitsPerPage" param will always be set to 100)
  */
 
 import fs from 'fs';
@@ -85,6 +86,9 @@ const toMatchString = (str) => {
 };
 
 const fetchRottenTomatoesScores = async (title, year) => {
+  // Overriding the page size in the original copied and pasted params
+  const params = RT_QUERY_PARAMS.replace(/hitsPerPage=\d+/, 'hitsPerPage=100');
+
   const response = await fetch(RT_QUERY_URL, {
     method: 'POST',
     headers: {
