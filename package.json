@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/delventhalz/tomatoes-csv#readme",
   "dependencies": {
-    "json-2-csv": "^5.5.8"
+    "json-2-csv": "^5.5.8",
+    "number-to-words": "^1.2.4"
   }
 }
