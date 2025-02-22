@@ -90,6 +90,8 @@ const toMatchString = (str) => {
     .replace(/(\b)viii(\b)/g, '$18$2')
     .replace(/(\b)ix(\b)/g, '$19$2')
     .replace(/(\b)x(\b)/g, '$110$2')
+    .replace(/½/g, ' and a half ')
+    .replace(/1\/2/g, ' and a half ')
     .replace(/\d+(?:st|nd|rd|th)/g, number2Words.toWordsOrdinal)
     .replace(/\d+/g, number2Words.toWords)
     .replace(/&/g, ' and ')
