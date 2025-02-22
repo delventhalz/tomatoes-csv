@@ -1,0 +1,22 @@
+{
+  "name": "tomatoes-csv",
+  "version": "0.0.1",
+  "description": "Add Rotten Tomatoes scores to a CSV of movies, such as those exported by Letterboxd",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delventhalz/tomatoes-csv.git"
+  },
+  "author": "Zac Delventhal <contrib@zacis.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/delventhalz/tomatoes-csv/issues"
+  },
+  "homepage": "https://github.com/delventhalz/tomatoes-csv#readme",
+  "dependencies": {
+    "json-2-csv": "^5.5.8"
+  }
+}
