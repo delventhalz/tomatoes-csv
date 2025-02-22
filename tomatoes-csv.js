@@ -82,6 +82,10 @@ const toMatchString = (str) => {
     .trim()
     .replace(/\d+(?:st|nd|rd|th)/g, number2Words.toWordsOrdinal)
     .replace(/\d+/g, number2Words.toWords)
+    .replace(/&/g, ' and ')
+    .replace(/%/g, ' percent ')
+    .replace(/@/g, ' at ')
+    .replace(/°/g, ' degrees ')
     .replace(/[^a-z ]/g, '')
     .replace(/\s+/g, ' ');
 };
