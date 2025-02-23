@@ -139,7 +139,7 @@ const fetchRottenTomatoesScores = async (title, year) => {
 
   const looseMatches = hits.filter((hit) => {
     const hitTitles = [hit.title, ...(hit.titles ?? []), ...(hit.aka ?? [])];
-    return Math.abs(Number(year) - Number(hit.releaseYear)) < 8
+    return Math.abs(Number(year) - Number(hit.releaseYear)) < 10 // RT years can't be trusted
       && hitTitles.some(t => toMatchString(t) === toMatchString(title));
   });
 
