@@ -99,6 +99,7 @@ const toMatchString = (str) => {
     .replace(/@/g, ' at ')
     .replace(/°/g, ' degrees ')
     .replace(/the /g, '')
+    .normalize('NFD')
     .replace(/[^a-z ]/g, '')
     .replace(/\s+/g, ' ');
 };
