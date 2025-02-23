@@ -14,13 +14,13 @@
  *   2. Open the Network tab in the Developer Tools of your browser
  *   3. Type a movie name into the search bar
  *   4. Look for a POST request that starts with "query"
- *   5. Set these values as environment variables as needed:
- *        - RT_QUERY_URL:    The complete request URL including query params
- *        - RT_QUERY_TOKEN:  Found in request headers as "x-algolia-usertoken"
- *        - RT_QUERY_AGENT:  Found in request headers as "user-agent"
- *        - RT_QUERY_PARAMS: Found in the request body/payload as the "params"
- *                           on the requests object named "content_rt"
- *                           (the "hitsPerPage" param will always be set to 100)
+ *   5. Set one or more of these env variables with values from the request:
+ *      - RT_QUERY_URL:    Complete request URL including params after the ?
+ *      - RT_QUERY_TOKEN:  Found in the request headers as "x-algolia-usertoken"
+ *      - RT_QUERY_AGENT:  Found in the request headers as "user-agent"
+ *      - RT_QUERY_PARAMS: Found in the request body/payload as the "params"
+ *                         property on the requests object named "content_rt"
+ *                         (the "hitsPerPage" param will always be set to 100)
  */
 
 import fs from 'fs';
