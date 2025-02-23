@@ -139,11 +139,12 @@ const fetchRottenTomatoesScores = async (title, year) => {
 
   const looseMatches = hits.filter((hit) => {
     const hitTitles = [hit.title, ...(hit.titles ?? []), ...(hit.aka ?? [])];
-    return Math.abs(Number(year) - Number(hit.releaseYear)) < 5
+    return Math.abs(Number(year) - Number(hit.releaseYear)) < 8
       && hitTitles.some(t => toMatchString(t) === toMatchString(title));
   });
 
   const match = looseMatches.find(hit => Number(hit.releaseYear) === Number(year))
+    ?? looseMatches.find(hit => Math.abs(Number(hit.releaseYear) - Number(year)) < 2)
     ?? looseMatches.find(hit => toMatchString(hit.title) === toMatchString(title))
     ?? looseMatches[0];
 
