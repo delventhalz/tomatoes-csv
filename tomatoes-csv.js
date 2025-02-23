@@ -147,8 +147,8 @@ const fetchRottenTomatoesScores = async (title, year) => {
     ?? looseMatches[0];
 
   return {
-    criticsScore: match?.rottenTomatoes.criticsScore ?? '',
-    audienceScore: match?.rottenTomatoes.audienceScore ?? '',
+    criticsScore: match?.rottenTomatoes?.criticsScore ?? '',
+    audienceScore: match?.rottenTomatoes?.audienceScore ?? '',
   };
 };
 
