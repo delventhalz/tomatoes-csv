@@ -104,6 +104,12 @@ const toMatchString = (str) => {
 };
 
 const fetchRottenTomatoesScores = async (title, year) => {
+  // This is silly, but RT queries are fundamentally broken for this movie.
+  // Can't even find it from their website. Gotta google "9 Rotten Tomatoes".
+  if (String(title) === '9' && year === 2009) {
+    return { criticsScore: 57, audienceScore: 56 };
+  }
+
   // Overriding the page size in the original copied and pasted params
   const params = RT_QUERY_PARAMS.replace(/hitsPerPage=\d+/, 'hitsPerPage=100');
 
