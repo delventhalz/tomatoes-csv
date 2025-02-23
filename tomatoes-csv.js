@@ -181,10 +181,18 @@ for (const [index, movie] of movies.entries()) {
   // Avoid hammering Rotten Tomatoes and making them grumpy
   await sleep(1000);
 
+  const marker = `${index + 1}/${movies.length}`;
   const title = getField(movie, 'title');
   const year = getField(movie, 'year');
 
-  console.log(`[${index + 1}/${movies.length}]: Fetching scores for ${title} (${year})...`);
+  if (!title) {
+    throw new Error(`[${marker}]: No title found for movie!`);
+  }
+  if (!year) {
+    throw new Error(`[${marker}]: No year found for ${title}!`);
+  }
+
+  console.log(`[${marker}]: Fetching scores for ${title} (${year})...`);
   const scores = await fetchRottenTomatoesScores(title, year);
 
   moviesWithScores.push({
