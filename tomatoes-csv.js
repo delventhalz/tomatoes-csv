@@ -134,6 +134,11 @@ const fetchRottenTomatoesScores = async (title, year) => {
     })
   });
 
+  if (response.status > 299) {
+    const failure = await response.json().catch(() => response.text());
+    throw new Error(`RT Query Failed [${response.status}]: ${failure.message ?? failure}`);
+  }
+
   const parsed = await response.json();
   const { hits } = parsed.results[0];
 
