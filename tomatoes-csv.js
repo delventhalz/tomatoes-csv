@@ -98,6 +98,7 @@ const toMatchString = (str) => {
     .replace(/%/g, ' percent ')
     .replace(/@/g, ' at ')
     .replace(/°/g, ' degrees ')
+    .replace(/[-_,/\\|]/g, ' ')
     .replace(/the /g, '')
     .normalize('NFD')
     .replace(/[^a-z ]/g, '')
